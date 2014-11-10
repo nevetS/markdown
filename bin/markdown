@@ -1,0 +1,40 @@
+#!/bin/bash
+## LICENSE:  MIT
+##
+## markdown
+## 
+## Version: 0.1
+## 
+## Purpose: produces an html document based on a markdown formatted text file
+##          by leveraging Markdown.pl and wrapping the output in an html header
+##          and footer.
+##
+## Usage: markdown [markdownfile]
+##
+## markdownfile is a text file in markdown format
+##
+## Author: Steve Kallestad 
+## Copyright: 2014
+
+#configuration variables
+
+#location of perl
+PERL=/usr/bin/perl
+
+#location of files from this markdown project
+LIB=~/lib/markdown
+
+#location of Markdown.pl
+MARKDOWN=${LIB}/Markdown.pl
+
+#HTML Header and Footer
+HEADER=${LIB}/header.html
+FOOTER=${LIB}/footer.html
+
+
+PARMS=${@}
+
+
+cat ${HEADER}
+${PERL} ${MARKDOWN} ${PARMS}
+cat ${FOOTER}
